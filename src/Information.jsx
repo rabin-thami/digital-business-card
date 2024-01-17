@@ -2,28 +2,42 @@ import React from "react";
 import './index.css'
 import profileImage from './assets/profile.jpg'
 
-function InfoSection() {
+
+function TopInfoSection() {
+    const handleButtonClick = (buttonType => {
+        if(buttonType == "Email") {
+            alert('Email is not Published yet')
+        }
+        else if(buttonType === "LinkedIn"){
+            const url = "https://www.linkedin.com/in/rabinthami/"
+            window.open (url, "_blank")
+        }
+    })
     return (
-        <section className="info__section">
-            <div className="profileImageContainer">
-                <img src={ profileImage} alt="Profile Picture" />
+        <div className="top__section">
+            <div className="image__container">
+                <img src={profileImage} alt="Pofile Image" />
             </div>
-            <div className="personal__info__section">
+
+            <div className="information__section">
                 <h1>Rabin Thami</h1>
                 <p>Frontend Developer</p>
-                <a href="http://rabinthami.com.np">rabinthami.com.np</a>
+                <a href="http://rabinthami.com.np" target="_blank">rabinthami.com.np</a>
             </div>
-            <div className="info__button__section">
-                <button>
-                    <i class="fa-light fa-envelope"></i> Email
+
+            <div className="information__button__section">
+                <button onClick={() => handleButtonClick('Email')}> 
+                    <i class="fa-regular fa-envelope"></i> Email
                 </button>
-                <button>
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+
+                <button onClick={() => handleButtonClick('LinkedIn')}>
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
                 </button>
+
             </div>
-        </section>
+        </div>
     )
 }
 
 
-export default InfoSection
+export default TopInfoSection
